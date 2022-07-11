@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<script src="~/js/site.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //Uncheck the CheckBox initially
+
+        $('#chkCICDPipeline').removeAttr('checked');
+
+        // Initially, Hide the SSN textbox when Web Form is loaded
+
+        $('#divPIPELINE').hide();
+
+        $('#chkCICDPipeline').change(function () {
+
+            if (this.checked) {
+
+                $('#divPIPELINE').show();
+
+            }
+
+            else {
+
+                $('#divPIPELINE').hide();
+
+            }
+
+        });
+
+    });
+
+</script>
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="AutoMigrate">
+    <div class="col-sm-12">
+        <section class="panel">
+
+            <p>Welcome to AzureMigration</p>
+            <div class="panel-body">
+                <div id="div_add_line1_error" class="form-group">
+                    <label class="col-sm-4 control-label">Repository Url:</label>
+                    <div class="col-sm-8">
+                        <input type="text" value="" name="txtRepo" class="form-control">
+                        <span class="help-block with-errors errorLabel displayLabel" id="add_line1_error">
+                            &nbsp;
+                        </span>
+                    </div>
+                </div>
+                <div id="div_add_line2_error" class="form-group">
+                    <label class="col-sm-4 control-label">Repository Token:</label>
+                    <div class="col-sm-8">
+                        <input type="text" value="" name="txtRepoToken" class="form-control">
+                        <span class="help-block with-errors errorLabel displayLabel" id="add_line2_error">
+                            &nbsp;
+                        </span>
+                    </div>
+                </div>
+                <div id="div_add_line3_error" class="form-group">
+                    <label class="col-sm-4 control-label">Application Name:</label>
+                    <div class="col-sm-8">
+                        <input type="text" value="" name="txtAppName" class="form-control">
+                        <span class="help-block with-errors errorLabel displayLabel" id="add_line3_error">
+                            &nbsp;
+                        </span>
+                    </div>
+                </div>
+                <div id="div_add_line4_error" class="form-group">
+                    <label class="col-sm-4 control-label">Resource Group Name:</label>
+                    <div class="col-sm-8">
+                        <input type="text" value="" name="txtRGName" class="form-control">
+                        <span class="help-block with-errors errorLabel displayLabel" id="add_line4_error">
+                            &nbsp;
+                        </span>
+                    </div>
+                </div>
+                <div id="div_add_line5_error" class="form-group">
+                    <label class="col-sm-4 control-label">Source Branch for Continuous Deployment:</label>
+                    <div class="col-sm-8">
+                        <input type="text" value="" name="txtSourceName" class="form-control">
+                        <span class="help-block with-errors errorLabel displayLabel" id="add_line5_error">
+                            &nbsp;
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label"> CI/CD PIPELINE BUILD :
+                    </label>
+                    <div class="col-sm-8">
+                        <input style="height:25px;width:25px" type="checkbox" ID="chkCICDPipeline" Text="CI/CD PIPELINE BUILD" />
+                        </div>
+                    </div>
+
+                    <div id="divPIPELINE" class="form-group">
+
+                       
+
+                           
+                                    <div id="div_add_line6_error" class="form-group">
+                                        <label class="col-sm-4 control-label">Azure Devops Organisation:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" value="" name="txtOrgName" class="form-control">
+                                            <span class="help-block with-errors errorLabel displayLabel" id="add_line6_error">
+                                                &nbsp;
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div id="div_add_line7_error" class="form-group">
+                                        <label class="col-sm-4 control-label">Azure Project Personal Access Token:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" value="" name="txtPAT" class="form-control">
+                                            <span class="help-block with-errors errorLabel displayLabel" id="add_line7_error">
+                                                &nbsp;
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div id="div_add_line7_error" class="form-group">
+                                        <label class="col-sm-4 control-label">Azure Repository:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" value="" name="txtRepo" class="form-control">
+                                            <span class="help-block with-errors errorLabel displayLabel" id="add_line7_error">
+                                                &nbsp;
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div id="div_add_line7_error" class="form-group">
+                                        <label class="col-sm-4 control-label">Azure Devops Project:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" value="" name="txtAzProject" class="form-control">
+                                            <span class="help-block with-errors errorLabel displayLabel" id="add_line7_error">
+                                                &nbsp;
+                                            </span>
+                                        </div>
+                                    </div>
+                                
+
+                    </div>
+
+                </div>
+        </section>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="submit" />
+        </div>
+
+    </div>
+</form>
